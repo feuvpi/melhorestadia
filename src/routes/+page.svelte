@@ -49,7 +49,9 @@
 		</div>
 
 		<!-- Login Form -->
-		<div class="relative z-10 backdrop-blur-md bg-white/30 p-8 rounded-md shadow-lg md:w-2/6">
+		<div
+			class="relative z-10 backdrop-blur-md bg-white/30 p-8 rounded-md shadow-lg md:w-2/6 mb-8 mt-8"
+		>
 			<form action="#" method="POST">
 				<div class="mb-4">
 					<label class="block text-gray-700 font-bold mb-2" for="email"
@@ -97,7 +99,7 @@
 						<option value="8+">8 ou mais pessoas</option>
 					</select>
 				</div>
-				<div class="flex items-center justify-between gap-8">
+				<div class="mt-6 flex items-center justify-between gap-8">
 					<button
 						class="text-white font-bold flex w-full text-center justify-center flex-no-wrap border-2 border-white bg-emerald-600 py-2 px-4"
 					>
