@@ -1,25 +1,38 @@
 <script>
+	// @ts-nocheck
+
 	import ArticleCard from '../lib/components/Card.svelte';
 
+	// export async function load() {
+	// 	const posts = blogMetadata;
+	// 	return { props: { posts } };
+	// }
+
+	export let data;
+
+	console.log(data);
+	console.log(data.posts);
+	console.log(data.posts[0]);
+
 	// Dados do artigo
-	const articles = [
-		{
-			category: 'Tecnologia',
-			title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
-			author: 'David Grzyb',
-			date: '25 de abril de 2020',
-			content:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna.'
-		},
-		{
-			category: 'Tecnologia',
-			title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
-			author: 'David Grzyb',
-			date: '25 de abril de 2020',
-			content:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna.'
-		}
-	];
+	// const articles = [
+	// 	{
+	// 		category: 'Tecnologia',
+	// 		title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
+	// 		author: 'David Grzyb',
+	// 		date: '25 de abril de 2020',
+	// 		content:
+	// 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna.'
+	// 	},
+	// 	{
+	// 		category: 'Tecnologia',
+	// 		title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
+	// 		author: 'David Grzyb',
+	// 		date: '25 de abril de 2020',
+	// 		content:
+	// 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna.'
+	// 	}
+	// ];
 </script>
 
 <body class="bg-white font-family-karla">
@@ -48,7 +61,7 @@
 			/>
 		</div>
 
-		<!-- Login Form -->
+		<!-- App Form -->
 		<div
 			class="relative z-10 backdrop-blur-md bg-white/30 p-8 rounded-md shadow-lg md:w-2/6 mb-8 mt-8"
 		>
@@ -169,9 +182,11 @@
 		<!-- Posts Section -->
 
 		<section class="w-full md:w-2/3 flex flex-col items-center px-3">
-			{#each articles as article}
-				<ArticleCard articleData={article} />
-			{/each}
+			{#if data.posts !== undefined}
+				{#each data.posts as post}
+					<ArticleCard {post} />
+				{/each}
+			{/if}
 			<!-- Pagination -->
 			<div class="flex items-center py-8">
 				<a
@@ -285,30 +300,3 @@
 		</div>
 	</footer>
 </body>
-
-<!-- <script>
-		function getCarouselData() {
-			return {
-				currentIndex: 0,
-				images: [
-					'https://source.unsplash.com/collection/1346951/800x800?sig=1',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=2',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=3',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=4',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=5',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=6',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=7',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=8',
-					'https://source.unsplash.com/collection/1346951/800x800?sig=9'
-				],
-				increment() {
-					this.currentIndex =
-						this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
-				},
-				decrement() {
-					this.currentIndex =
-						this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
-				}
-			};
-		}
-	</script> -->
