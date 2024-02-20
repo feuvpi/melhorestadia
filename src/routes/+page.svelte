@@ -3,6 +3,7 @@
 
 	import ArticleCard from '../lib/components/Card.svelte';
 	import Grid from '../lib/components/Grid.svelte';
+	import CardList from '../lib/components/CardList.svelte';
 
 	// export async function load() {
 	// 	const posts = blogMetadata;
@@ -136,7 +137,7 @@
 				</div>
 				<div class="mt-6 flex items-center justify-between gap-8">
 					<button
-						class="text-white font-bold flex w-full text-center justify-center flex-no-wrap border-2 border-white bg-emerald-600 py-2 px-4"
+						class="text-white font-bold flex w-full text-center justify-center flex-no-wrap border-2 border-white bg-emerald-500 hover:bg-emerald-600 py-2 px-4"
 					>
 						<span>ESTOU COM SORTE</span>
 						<span>
@@ -163,8 +164,8 @@
 
 	<!-- Topic Nav -->
 	<!-- <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }"></nav> -->
-	<Grid />
-	<div class="container mx-auto flex flex-wrap py-6">
+
+	<div class="container mx-auto flex flex-wrap py-6 bg-emerald-400 bg-opacity-50">
 		<!-- Posts Section -->
 
 		<section class="w-full md:w-2/3 flex flex-col items-center px-3">
@@ -177,12 +178,12 @@
 			<div class="flex items-center py-8">
 				<a
 					href="#"
-					class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center"
+					class="h-10 w-10 bg-emerald-500 hover:bg-emerald-600 font-semibold text-white text-sm flex items-center justify-center"
 					>1</a
 				>
 				<a
 					href="#"
-					class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center"
+					class="h-10 w-10 font-semibold text-gray-800 hover:bg-emerald-400 hover:text-white text-sm flex items-center justify-center"
 					>2</a
 				>
 				<a
@@ -194,75 +195,18 @@
 		</section>
 
 		<!-- Sidebar Section -->
-		<!-- <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
-			<div class="w-full bg-white shadow flex flex-col my-4 p-6">
-				<p class="text-xl font-semibold pb-5">About Us</p>
-				<p class="pb-2">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio
-					sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.
-				</p>
-				<a
-					href="#"
-					class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
-				>
-					Get to know us
-				</a>
-			</div>
 
+		<aside class="w-full md:w-1/3 flex flex-col items-center px-3">
 			<div class="w-full bg-white shadow flex flex-col my-4 p-6">
-				<p class="text-xl font-semibold pb-5">Instagram</p>
-				<div class="grid grid-cols-3 gap-3">
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=2"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=3"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=4"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=5"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=6"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=7"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=8"
-					/>
-					<img
-						class="hover:opacity-75"
-						src="https://source.unsplash.com/collection/1346951/150x150?sig=9"
-					/>
-				</div>
-				<a
-					href="#"
-					class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6"
-				>
-					<i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
-				</a>
+				<CardList />
 			</div>
-		</aside> -->
+		</aside>
 	</div>
 
 	<footer class="w-full border-t bg-white pb-12">
 		<div class="relative w-full flex items-center invisible md:visible md:pb-12">
 			<button
-				class="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
+				class="absolute bg-emerald-500 hover:bg-emerald-600 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
 			>
 				&#8592;
 			</button>
@@ -270,7 +214,7 @@
 				<img class="w-1/6 hover:opacity-75" />
 			</template>
 			<button
-				class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
+				class="absolute right-0 bg-emerald-500 hover:bg-emerald-600 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
 			>
 				&#8594;
 			</button>
@@ -282,7 +226,7 @@
 				<a href="#" class="uppercase px-3">Terms & Conditions</a>
 				<a href="#" class="uppercase px-3">Contact Us</a>
 			</div>
-			<div class="uppercase pb-6">&copy; myblog.com</div>
+			<div class="uppercase pb-6">&copy; melhorestadia.com</div>
 		</div>
 	</footer>
 </body>
