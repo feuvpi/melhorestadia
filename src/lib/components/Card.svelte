@@ -11,15 +11,19 @@
 	console.log(route);
 	// Extrair os dados do artigo
 
-	const { title, author, description, publishedAtIso } = post;
+	const { title, author, description, publishedAtIso, imageUrl } = post;
+	console.log(title);
+	console.log(imageUrl);
 </script>
 
-<article class="flex flex-col shadow my-4">
+<article
+	class="flex flex-col shadow my-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+>
 	<!-- Imagem do Artigo -->
 	<!-- svelte-ignore a11y-invalid-attribute -->
-	<a href="#" class="hover:opacity-75">
+	<a href="#" class="">
 		<!-- svelte-ignore a11y-missing-attribute -->
-		<img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1" />
+		<img src={imageUrl} class="hover:opacity-75 w-full h-96 object-cover" />
 	</a>
 	<div class="bg-white flex flex-col justify-start p-6">
 		<!-- svelte-ignore missing-declaration -->
