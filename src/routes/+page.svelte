@@ -3,7 +3,7 @@
 
 	import ArticleCard from '../lib/components/Card.svelte';
 	import CardList from '../lib/components/CardList.svelte';
-
+	import AppComponent from '../lib/components/AppComponent.svelte';
 	export let data;
 
 	// -- variável de estado para a página atual
@@ -118,7 +118,8 @@
 		</div>
 
 		<!-- App Form -->
-		<div
+		<AppComponent />
+		<!-- <div
 			class="relative z-10 backdrop-blur-md bg-white/30 p-8 rounded-md shadow-lg md:w-2/6 mb-8 mt-8"
 		>
 			<form action="#" method="POST">
@@ -192,7 +193,7 @@
 					</button>
 				</div>
 			</form>
-		</div>
+		</div> -->
 	</div>
 
 	<!-- Topic Nav -->
@@ -225,6 +226,8 @@
 			<div class="w-full flex flex-col my-4 p-6">
 				<CardList />
 			</div>
+
+			<AppComponent mdWidth="md:w-5/6" />
 		</aside>
 	</div>
 
