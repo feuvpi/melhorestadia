@@ -10,6 +10,7 @@
 	$: paginaAtual = 1;
 	const postsPorPagina = 2;
 	$: postsPaginaAtual = [];
+	$: postsTotais = data.posts;
 
 	$: {
 		const { start, end } = calcularIndices(paginaAtual);
@@ -80,7 +81,7 @@
 
 	<aside class="w-full md:w-1/3 flex flex-col items-center px-3 bg-emerald-400/50">
 		<div class="w-full flex flex-col my-4 p-6">
-			<CardList />
+			<CardList {postsTotais} />
 		</div>
 
 		<AppComponent mdWidth="md:w-5/6" />

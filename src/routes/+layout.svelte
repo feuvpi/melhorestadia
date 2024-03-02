@@ -56,6 +56,8 @@
 			<AppComponent />
 		</div>
 
-		<slot />
+		<div class="md:px-12">
+			<slot />
+		</div>
 	</body>
 </div>
