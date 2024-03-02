@@ -6,8 +6,8 @@
 	export let data: LayoutData;
 </script>
 
-<div class="wrapper relative font-sans min-h-screen flex flex-col align-middle bg-gray-900">
-	<body class="bg-white font-family-karla">
+<div class="wrapper relative font-mono min-h-screen flex flex-col align-middle bg-gray-900">
+	<body class="bg-white flex flex-col system-ui">
 		<!-- Top Bar Nav -->
 
 		<div
@@ -52,88 +52,10 @@
 					style="object-fit: cover;"
 				/>
 			</div>
-
 			<!-- App Form -->
 			<AppComponent />
-			<!-- <div
-				class="relative z-10 backdrop-blur-md bg-white/30 p-8 rounded-md shadow-lg md:w-2/6 mb-8 mt-8"
-			>
-				<form action="#" method="POST">
-					<div class="mb-4">
-						<label class="block text-gray-700 font-bold mb-2" for="email"
-							>Aonde deseja recarregar as energias?</label
-						>
-						<input
-							class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
-							id="lugar"
-							type="text"
-							placeholder="Aonde deseja recarregar as energias?"
-						/>
-					</div>
-					<div class="mb-4">
-						<label class="block text-gray-700 font-bold mb-2" for="password">Data de chegada</label>
-						<input
-							class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
-							id="chegada"
-							type="date"
-						/>
-					</div>
-					<div class="mb-4">
-						<label class="block text-gray-700 font-bold mb-2" for="password">Data de saída</label>
-						<input
-							class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
-							id="saida"
-							type="date"
-						/>
-					</div>
-					<div class="mb-4">
-						<label class="block text-gray-700 font-bold mb-2" for="quantidade"
-							>Número de pessoas</label
-						>
-						<select
-							class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
-							id="quantidade"
-						>
-							<option value="">Selecione o número de pessoas</option>
-							<option value="1">1 pessoa</option>
-							<option value="2">2 pessoas</option>
-							<option value="3">3 pessoas</option>
-							<option value="4">4 pessoas</option>
-							<option value="5">5 pessoas</option>
-							<option value="6">6 pessoas</option>
-							<option value="7">7 pessoas</option>
-							<option value="8+">8 ou mais pessoas</option>
-						</select>
-					</div>
-					<div class="mt-6 flex items-center justify-between gap-8">
-						<button
-							class="text-white font-bold flex w-full text-center justify-center flex-no-wrap border-2 border-white bg-emerald-500 hover:bg-emerald-600 py-2 px-4"
-						>
-							<span>ESTOU COM SORTE</span>
-							<span>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									class="ml-2 w-6 h-6"
-									><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"
-									></polyline></svg
-								>
-							</span>
-						</button>
-					</div>
-				</form>
-			</div> -->
 		</div>
 
-		<!-- Topic Nav -->
-		<!-- <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }"></nav> -->
 		<slot />
 	</body>
 </div>

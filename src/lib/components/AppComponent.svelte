@@ -15,11 +15,11 @@
 </script>
 
 <div
-	class={`relative z-10 backdrop-blur-md bg-white/30 p-8 rounded-md shadow-lg ${mdWidth} mb-8 mt-8`}
+	class={`relative z-10 md:backdrop-blur-md bg-white/70 p-8 rounded-md shadow-lg ${mdWidth} mb-8 mt-8`}
 >
 	<form>
 		<div class="mb-4">
-			<label class="block text-gray-700 font-bold mb-2" for="location"
+			<label class="block text-blackfont-bold mb-2" for="location"
 				>Aonde deseja recarregar as energias?</label
 			>
 			<input

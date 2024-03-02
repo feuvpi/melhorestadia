@@ -3,17 +3,13 @@
 
 	export let post;
 
-	const fullPath = post.fullPath;
-	const segments = fullPath.split('\\'); // Divida a string com base na barra invertida para obter os segmentos do caminho
-	const lastSegment = segments[segments.length - 2]; // Pegue o penúltimo segmento, que é o que você deseja
-	const route = lastSegment.split('.')[0]; // Remova a extensão do arquivo (segundo-post.md)
-
-	console.log(route);
+	// const fullPath = post.fullPath;
+	// const segments = fullPath.split('\\'); // Divida a string com base na barra invertida para obter os segmentos do caminho
+	// const lastSegment = segments[segments.length - 2]; // Pegue o penúltimo segmento, que é o que você deseja
+	// const route = lastSegment.split('.')[0]; // Remova a extensão do arquivo (segundo-post.md)
 	// Extrair os dados do artigo
 
 	const { title, author, description, publishedAtIso, imageUrl } = post;
-	console.log(title);
-	console.log(imageUrl);
 </script>
 
 <article
@@ -35,9 +31,9 @@
 			<!-- svelte-ignore a11y-invalid-attribute -->
 			Por <a href="#" class="font-semibold hover:text-gray-800">{author}</a>, Publicado em {publishedAtIso}
 		</p>
-		<p href="#" class="pb-6">{description}</p>
+		<p href={post.slug} class="pb-6">{description}</p>
 		<!-- svelte-ignore a11y-invalid-attribute -->
-		<a href={`/posts/${route}`} class="uppercase text-gray-800 hover:text-black">
+		<a href={`/${post.slug}`} class="uppercase text-gray-800 hover:text-black">
 			Continuar Lendo <i class="fas fa-arrow-right"></i>
 		</a>
 	</div>

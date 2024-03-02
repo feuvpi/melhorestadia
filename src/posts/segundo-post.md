@@ -1,20 +1,20 @@
 ---
-title: 'Melhores chales na vila do capão5'
+title: 'Melhores chales na vila do capão2'
 description: 'A high-level view of features and pricing from the newest and best online text to speech generators on the market'
 author: 'Kyle'
-publishedAtIso: '2023-02-09'
-imageUrl: 'https://images.unsplash.com/photo-1605196560547-b2f7281b7355?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+publishedAtIso: '2023-02-06'
+imageUrl: 'https://images.unsplash.com/photo-1456613820599-bfe244172af5?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+featured: false
+published: true
 ---
 
 //  https://dev.to/kylebuildsstuff/building-a-blog-with-sveltekit-and-markdown-2oaa
 
-<script>
-...
-</script>
 
 ## Current state of text to speech AI voice generators
 
 Text to speech technology, also known as speech synthesis, is software that converts written text into spoken words.
+
 
 Text to speech technology has greatly improved over the past few years, leading to more realistic and natural-sounding voices. From creating more content for social media and platforms like Youtube and Tiktok, to improving accessibility for those with disabilities, or even increasing efficiency in the workplace, text to speech has numerous applications that are making a real impact in our daily lives.
 

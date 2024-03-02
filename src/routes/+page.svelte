@@ -45,31 +45,12 @@
 		console.log('entrei' + numeroPagina);
 		paginaAtual = numeroPagina;
 	}
-
-	console.log(data);
-	console.log(data.posts);
-	console.log(data.posts[0]);
-
-	// Dados do artigo
-	// const articles = [
-	// 	{
-	// 		category: 'Tecnologia',
-	// 		title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
-	// 		author: 'David Grzyb',
-	// 		date: '25 de abril de 2020',
-	// 		content:
-	// 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna.'
-	// 	},
-	// 	{
-	// 		category: 'Tecnologia',
-	// 		title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
-	// 		author: 'David Grzyb',
-	// 		date: '25 de abril de 2020',
-	// 		content:
-	// 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna.'
-	// 	}
-	// ];
 </script>
+
+<!-- <pre>
+
+	{JSON.stringify(data, null, 2)}
+</pre> -->
 
 <!-- Topic Nav -->
 <!-- <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }"></nav> -->
