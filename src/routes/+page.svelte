@@ -95,7 +95,7 @@
 <div class="container shadow-xl mx-auto flex flex-wrap py-6 bg-opacity-50">
 	<!-- Posts Section -->
 
-	<ul bind:this={listElement} class="w-full md:w-2/3 flex flex-col items-center px-3 overflow-auto">
+	<ul bind:this={listElement} class="w-full md:w-2/3 flex flex-col items-center px-3 overflow-auto h-full">
 		{#if postsNaView !== undefined}
 			{#each postsNaView as post (post.title)}
 				<li><ArticleCard {post} /></li>
