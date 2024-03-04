@@ -4,6 +4,7 @@
 	import ArticleCard from '../lib/components/Card.svelte';
 	import CardList from '../lib/components/CardList.svelte';
 	import AppComponent from '../lib/components/AppComponent.svelte';
+	import { onDestroy, onMount } from 'svelte';
 	export let data;
 
 	// -- variável de estado para a página atual
@@ -12,11 +13,12 @@
 	$: postsPaginaAtual = [];
 	$: postsTotais = data.posts;
 
+	$: postsNaView = data.posts.slice(0, 4);
+	$: page = 2;
+
 	$: {
 		const { start, end } = calcularIndices(paginaAtual);
-		console.log('aqui');
 		postsPaginaAtual = data.posts.slice(start, end);
-		console.log(postsPaginaAtual);
 	}
 
 	// -- Função para calcular o índice inicial e final dos posts a serem exibidos
@@ -46,6 +48,40 @@
 		console.log('entrei' + numeroPagina);
 		paginaAtual = numeroPagina;
 	}
+
+	let listElement;
+
+	// add 4 more posts
+	function load4More(page) {
+		console.log('entrei no load4more');
+		index = (page - 1) * 4;
+
+		if (index >= data.posts.length) {
+			return;
+		}
+
+		if (index < data.posts.length - 4) {
+			postsNaView = [...postsNaView, data.posts.slice(index, index + 4)];
+		} else {
+			postsNaView = [...postsNaView, data.posts.slice(index)];
+		}
+	}
+
+	onMount(() => {
+		if (listElement) {
+			console.log('listElement is defined');
+			listElement.addEventListener('scroll', function () {
+				if (listElement.scrollTop + listElement.clientHeight >= listElement.scrollHeight) {
+					load4More(page);
+					page++;
+				}
+			});
+		}
+	});
+
+	// onDestroy(() => {
+	// 	listElement.removeEventListener("scroll")
+	// })
 </script>
 
 <!-- <pre>
@@ -59,14 +95,14 @@
 <div class="container shadow-xl mx-auto flex flex-wrap py-6 bg-opacity-50">
 	<!-- Posts Section -->
 
-	<section class="w-full md:w-2/3 flex flex-col items-center px-3">
-		{#if postsPaginaAtual !== undefined}
-			{#each postsPaginaAtual as post (post.title)}
-				<ArticleCard {post} />
+	<ul bind:this={listElement} class="w-full md:w-2/3 flex flex-col items-center px-3 overflow-auto">
+		{#if postsNaView !== undefined}
+			{#each postsNaView as post (post.title)}
+				<li><ArticleCard {post} /></li>
 			{/each}
 		{/if}
 		<!-- Pagination -->
-		<div class="flex items-center py-8">
+		<!-- <div class="flex items-center py-8">
 			{#each Array.from({ length: getTotalPages() }) as _, i}
 				<button
 					on:click={() => selectPage(i + 1)}
@@ -74,8 +110,8 @@
 					>{i + 1}</button
 				>
 			{/each}
-		</div>
-	</section>
+		</div> -->
+	</ul>
 
 	<!-- Sidebar Section -->
 
@@ -89,7 +125,7 @@
 </div>
 
 <footer class="w-full border-t bg-white pb-12">
-	<div class="relative w-full flex items-center invisible md:visible md:pb-12">
+	<!-- <div class="relative w-full flex items-center invisible md:visible md:pb-12">
 		<button
 			on:click={paginaAnterior}
 			class="absolute bg-emerald-500 hover:bg-emerald-600 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
@@ -105,7 +141,7 @@
 		>
 			&#8594;
 		</button>
-	</div>
+	</div> -->
 	<div class="w-full container mx-auto flex flex-col items-center">
 		<!-- <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
 				<a href="#" class="uppercase px-3">About Us</a>

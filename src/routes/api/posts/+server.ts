@@ -9,9 +9,6 @@ async function getPosts(){
 
     const paths = import.meta.glob('/src/posts/*.md', { 
         eager: true })
-
-    console.log(paths)
-
     for(const path in paths){
         const file = paths[path]
         const slug = path.split('/').at(-1)?.replace('.md', '')
@@ -20,7 +17,6 @@ async function getPosts(){
             const metadata = file.metadata as Omit<Post, 'slug'>
             const post = { ...metadata, slug } satisfies Post
             post.published && posts.push(post)
-            console.log(posts)
         }
      
     }
