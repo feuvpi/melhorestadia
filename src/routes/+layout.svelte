@@ -33,11 +33,11 @@
 				<div
 					class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2"
 				>
-					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Cabines</a>
-					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Trilhas</a>
-					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Cachoeiras</a>
-					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Lugares</a>
-					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Comida</a>
+					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Norte</a>
+					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Nordeste</a>
+					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Centro-Oeste</a>
+					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Sudeste</a>
+					<a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Sul</a>
 				</div>
 			</div>
 		</nav>
@@ -61,3 +61,23 @@
 		</div>
 	</body>
 </div>
+
+<style>
+	.menu {
+		display: none;
+	}
+
+	@media screen and (max-width: 768px) {
+		.menu {
+			display: block;
+			overflow: hidden;
+			max-height: 0;
+			transition: max-height 0.2s ease-out;
+		}
+
+		.menu.active {
+			max-height: 1000px; /* Adjust according to your content height */
+			transition: max-height 0.4s ease-in;
+		}
+	}
+</style>

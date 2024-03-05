@@ -13,7 +13,7 @@
 	$: postsPaginaAtual = [];
 	$: postsTotais = data.posts;
 
-	$: postsNaView = data.posts.slice(0, 4);
+	$: postsNaView = data.posts.slice(0, 3);
 	$: page = 2;
 
 	$: {
@@ -71,6 +71,7 @@
 		if (listElement) {
 			console.log('listElement is defined');
 			listElement.addEventListener('scroll', function () {
+				console.log('entrei aquiqqq');
 				if (listElement.scrollTop + listElement.clientHeight >= listElement.scrollHeight) {
 					load4More(page);
 					page++;
@@ -92,13 +93,13 @@
 <!-- Topic Nav -->
 <!-- <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }"></nav> -->
 
-<div class="container shadow-xl mx-auto flex flex-wrap py-6 bg-opacity-50">
+<div class=" shadow-xl mx-auto flex flex-wrap bg-opacity-50">
 	<!-- Posts Section -->
 
-	<ul bind:this={listElement} class="w-full md:w-2/3 flex flex-col items-center px-3 overflow-auto h-full">
+	<ul bind:this={listElement} class="w-full md:w-2/3 flex-col items-center px-3 overflow-auto h-72">
 		{#if postsNaView !== undefined}
 			{#each postsNaView as post (post.title)}
-				<li><ArticleCard {post} /></li>
+				<li class="border-2 border-indigo-700"><ArticleCard {post} /></li>
 			{/each}
 		{/if}
 		<!-- Pagination -->
