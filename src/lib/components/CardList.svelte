@@ -14,7 +14,7 @@
 	// }
 </script>
 
-<div class="relative flex flex-col justify-center overflow-hidden">
+<div class="relative flex flex-col justify-center overflow-auto">
 	<div class="mx-auto">
 		{#each postsTotais as post}
 			<div class="grid w-full grid-cols-1 gap-6 my-4">
