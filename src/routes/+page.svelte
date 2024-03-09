@@ -2,82 +2,81 @@
 	// @ts-nocheck
 
 	import ArticleCard from '../lib/components/Card.svelte';
+	import InfiniteScroll from '../lib/components/InfiniteScroll.svelte';
 	import CardList from '../lib/components/CardList.svelte';
 	import AppComponent from '../lib/components/AppComponent.svelte';
 	import { onDestroy, onMount } from 'svelte';
+
 	export let data;
 
 	// -- variável de estado para a página atual
-	$: paginaAtual = 1;
-	const postsPorPagina = 2;
-	$: postsPaginaAtual = [];
-	$: postsTotais = data.posts;
+	// $: paginaAtual = 1;
+	// const postsPorPagina = 2;
+	// $: postsPaginaAtual = [];
+	// $: postsTotais = data.posts;
 
-	$: postsNaView = data.posts.slice(0, 3);
-	$: page = 2;
+	let postsNaView = [];
+	let newBatch = [];
 
-	$: {
-		const { start, end } = calcularIndices(paginaAtual);
-		postsPaginaAtual = data.posts.slice(start, end);
-	}
+	$: postsNaView = [...postsNaView, ...newBatch];
 
-	// -- Função para calcular o índice inicial e final dos posts a serem exibidos
-	function calcularIndices(paginaAtual) {
-		const start = (paginaAtual - 1) * postsPorPagina;
-		const end = start + postsPorPagina;
-		return { start, end };
-	}
+	// $: page = 2;
 
-	// -- Method to return total pages
-	function getTotalPages() {
-		return Math.ceil(data.posts.length / postsPorPagina);
-	}
+	// $: {
+	// 	const { start, end } = calcularIndices(paginaAtual);
+	// 	postsPaginaAtual = data.posts.slice(start, end);
+	// }
 
-	// -- advance pagina
-	function nextPage() {
-		const totalPages = Math.ceil(data.posts.length / postsPorPagina);
-		paginaAtual = paginaAtual < totalPages ? paginaAtual + 1 : paginaAtual;
-	}
+	// // -- Função para calcular o índice inicial e final dos posts a serem exibidos
+	// function calcularIndices(paginaAtual) {
+	// 	const start = (paginaAtual - 1) * postsPorPagina;
+	// 	const end = start + postsPorPagina;
+	// 	return { start, end };
+	// }
 
-	// -- return page
-	function paginaAnterior() {
-		paginaAtual = paginaAtual > 1 ? paginaAtual - 1 : 1;
-	}
+	// // -- Method to return total pages
+	// function getTotalPages() {
+	// 	return Math.ceil(data.posts.length / postsPorPagina);
+	// }
 
-	function selectPage(numeroPagina) {
-		console.log('entrei' + numeroPagina);
-		paginaAtual = numeroPagina;
-	}
+	// // -- advance pagina
+	// function nextPage() {
+	// 	const totalPages = Math.ceil(data.posts.length / postsPorPagina);
+	// 	paginaAtual = paginaAtual < totalPages ? paginaAtual + 1 : paginaAtual;
+	// }
+
+	// // -- return page
+	// function paginaAnterior() {
+	// 	paginaAtual = paginaAtual > 1 ? paginaAtual - 1 : 1;
+	// }
+
+	// function selectPage(numeroPagina) {
+	// 	console.log('entrei' + numeroPagina);
+	// 	paginaAtual = numeroPagina;
+	// }
 
 	let listElement;
-
+	let page = 1;
 	// add 4 more posts
 	function load4More(page) {
 		console.log('entrei no load4more');
-		index = (page - 1) * 4;
+		let index = (page - 1) * 4;
 
 		if (index >= data.posts.length) {
 			return;
 		}
 
-		if (index < data.posts.length - 4) {
-			postsNaView = [...postsNaView, data.posts.slice(index, index + 4)];
+		if (index <= data.posts.length - 4) {
+			newBatch = data.posts.slice(index, index + 4);
 		} else {
-			postsNaView = [...postsNaView, data.posts.slice(index)];
+			newBatch = data.posts.slice(index);
 		}
+		console.log(data.posts.length);
+		console.log(postsNaView);
 	}
 
 	onMount(() => {
-		if (listElement) {
-			console.log('listElement is defined');
-			listElement.addEventListener('scroll', function () {
-				console.log('entrei aquiqqq');
-				if (listElement.scrollTop + listElement.clientHeight >= listElement.scrollHeight) {
-					load4More(page);
-					page++;
-				}
-			});
-		}
+		load4More(page);
 	});
 
 	// onDestroy(() => {
@@ -93,14 +92,25 @@
 <!-- Topic Nav -->
 <!-- <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }"></nav> -->
 
-<div class=" shadow-xl mx-auto flex flex-wrap bg-opacity-50">
+<div class="bg-white px-2 md:px-12 shadow-xl mx-auto flex flex-wrap">
 	<!-- Posts Section -->
 
-	<ul bind:this={listElement} class="w-full md:w-2/3 flex-col items-center px-3 overflow-auto h-72">
+	<div
+		bind:this={listElement}
+		class="w-full md:w-2/3 flex-col items-center md:px-20 h-full overflow-hidden overflow-y-auto"
+	>
 		{#if postsNaView !== undefined}
 			{#each postsNaView as post (post.title)}
-				<li class="border-2 border-indigo-700"><ArticleCard {post} /></li>
+				<ArticleCard {post} />
 			{/each}
+			<InfiniteScroll
+				hasMore={data.posts.length - postsNaView.length}
+				threshold={200}
+				on:loadMore={() => {
+					page++;
+					load4More(page);
+				}}
+			/>
 		{/if}
 		<!-- Pagination -->
 		<!-- <div class="flex items-center py-8">
@@ -112,13 +122,13 @@
 				>
 			{/each}
 		</div> -->
-	</ul>
+	</div>
 
 	<!-- Sidebar Section -->
 
-	<aside class="w-full md:w-1/3 flex flex-col items-center px-3 bg-emerald-400/50">
-		<div class="w-full flex flex-col my-4 p-6">
-			<CardList {postsTotais} />
+	<aside class="w-full md:w-1/4 flex h-fit flex-col items-center px-3 bg-emerald-400/50 my-4">
+		<div class="W-72 flex flex-col my-4 p-6">
+			<CardList {data} />
 		</div>
 
 		<AppComponent mdWidth="md:w-5/6" />

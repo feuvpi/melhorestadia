@@ -19,19 +19,17 @@
 >
 	<form>
 		<div class="mb-4">
-			<label class="block text-blackfont-bold mb-2" for="location"
-				>Aonde deseja recarregar as energias?</label
-			>
+			<label class="block text-blackfont-bold mb-2" for="location">Destino:</label>
 			<input
 				bind:value={location}
 				class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
 				id="lugar"
 				type="text"
-				placeholder="Aonde deseja recarregar as energias?"
+				placeholder="Selecionar um destino"
 			/>
 		</div>
 		<div class="mb-4">
-			<label class="block text-gray-700 font-bold mb-2" for="startDate">Data de chegada</label>
+			<label class="block text-gray-700 font-bold mb-2" for="startDate">Data de chegada:</label>
 			<input
 				bind:value={startDate}
 				class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
@@ -40,7 +38,7 @@
 			/>
 		</div>
 		<div class="mb-4">
-			<label class="block text-gray-700 font-bold mb-2" for="endDate">Data de saída</label>
+			<label class="block text-gray-700 font-bold mb-2" for="endDate">Data de saída:</label>
 			<input
 				bind:value={endDate}
 				class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
@@ -50,12 +48,13 @@
 		</div>
 		<div class="mb-4">
 			<label class="block text-gray-700 font-bold mb-2" for="numberOfPeople"
-				>Número de pessoas</label
+				>Número de pessoas:</label
 			>
 			<select
 				bind:value={numberOfPeople}
 				class="appearance-none border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
 				id="quantidade"
+				placeholder="Aonde deseja recarregar as energias?"
 			>
 				<option value="">Selecione o número de pessoas</option>
 				<option value="1">1 pessoa</option>
@@ -74,7 +73,7 @@
 				type="submit"
 				class="text-white font-bold flex w-full text-center justify-center flex-no-wrap border-2 border-white bg-emerald-500 hover:bg-emerald-600 py-2 px-4"
 			>
-				<span>ENCONTRAR UMA BOA ESTADIA</span>
+				<span>ENCONTRAR A MELHOR ESTADIA</span>
 				<span>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

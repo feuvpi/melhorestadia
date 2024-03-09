@@ -1,8 +1,12 @@
 <script>
 	import { formatDate } from '$lib/utils';
 
+	/**
+	 * @type {{ posts: any; }}
+	 */
+	export let data;
 	/** @type {import("$lib/types").Post[]} */
-	export let postsTotais = [];
+	let postsTotais = data.posts;
 
 	/**
 //  * @param {string | number | Date} dateString
@@ -32,7 +36,7 @@
 						<div class="flex justify-between items-center">
 							<p class="text-xs text-gray-400">Publicado em {post.publishedAtIso}</p>
 							<div class="relative z-40 flex items-center gap-2">
-								<a class="text-orange-600 hover:text-blue-500" href="">
+								<!-- <a class="text-orange-600 hover:text-blue-500" href="">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -47,8 +51,8 @@
 											d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
 										/>
 									</svg>
-								</a>
-								<a class="text-orange-600 hover:text-blue-500" href="">
+								</a> -->
+								<!-- <a class="text-orange-600 hover:text-blue-500" href="">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -63,7 +67,7 @@
 											d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
 										/>
 									</svg>
-								</a>
+								</a> -->
 							</div>
 						</div>
 					</div>
