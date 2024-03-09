@@ -71,7 +71,7 @@
 			<button
 				on:click={redirectToAirbnb}
 				type="submit"
-				class="text-white font-bold flex w-full text-center justify-center flex-no-wrap border-2 border-white bg-emerald-500 hover:bg-emerald-600 py-2 px-4"
+				class="text-white font-bold flex w-full text-center justify-center flex-no-wrap border-2 border-white bg-emerald-400 hover:bg-emerald-300 py-2 px-4"
 			>
 				<span>ENCONTRAR A MELHOR ESTADIA</span>
 				<span>
