@@ -92,12 +92,12 @@
 <!-- Topic Nav -->
 <!-- <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }"></nav> -->
 
-<div class="bg-white px-2 md:px-12 shadow-xl mx-auto flex flex-wrap">
+<div class="border-2 border-indigo-500 bg-white px-2 md:px-4 mx-auto flex flex-wrap">
 	<!-- Posts Section -->
 
 	<div
 		bind:this={listElement}
-		class="w-full md:w-2/3 flex-col items-center md:px-20 h-full overflow-hidden overflow-y-auto"
+		class="scrollable overflow-y-scroll w-full md:w-2/3 flex-col items-center md:px-20 h-full overflow-hidden overflow-y-auto"
 	>
 		{#if postsNaView !== undefined}
 			{#each postsNaView as post (post.title)}

@@ -13,7 +13,7 @@
 </script>
 
 <article
-	class="flex flex-col shadow-lg my-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+	class="sticky top-0 flex flex-col shadow-lg my-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
 >
 	<!-- Imagem do Artigo -->
 	<!-- svelte-ignore a11y-invalid-attribute -->
